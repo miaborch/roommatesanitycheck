@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brick-red:  #C94B32;
+  --color-concrete:   #E7E4DE;
+  --color-sky-blue:   #8CB9E8;
+  --color-black:      #171717;
+  --color-warm-white: #FAF8F3;
+  --color-gold:       #D4A853;
+  --color-sage:       #6BAE9F;
+  --color-lavender:   #9B7EC8;
+  --color-terra:      #E8956A;
+
+  --font-headline: "Anton", sans-serif;
+  --font-body:     "Inter", sans-serif;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.85) rotate(-4deg); }
+  70%  { transform: scale(1.05) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Smooth grid-rows expand for room card details */
+@layer utilities {
+  .grid-rows-expand {
+    grid-template-rows: 1fr;
+  }
+  .grid-rows-collapse {
+    grid-template-rows: 0fr;
+  }
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    font-family: var(--font-body);
+    color: #171717;
+    background-color: #FAF8F3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body { margin: 0; min-height: 100vh; }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  p { margin: 0; }
+  img, svg { display: block; }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  input, select, textarea { font-family: inherit; }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type=number] { -moz-appearance: textfield; }
+
+  ::selection { background: #C94B32; color: #FAF8F3; }
+}
